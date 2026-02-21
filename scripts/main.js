@@ -1,7 +1,6 @@
 const image_regex = /!\[photo\]\(([\/a-zA-Z0-9@:%\._\+~#=-]+)\)/;
 
-function Run () {
-    let comments = document.getElementById('comments-list');
+function Run (comments) {
     for (let comment of comments.children) {
         comment = comment.children[1].children[1];
         let text = comment.textContent; // NOTE: Alternatively querySelect class comment-text
@@ -25,4 +24,8 @@ function Run () {
     }
 }
 
-Run();
+let comments = document.getElementById('comments-list');
+
+if (comments) {
+    Run(comments);
+}
